@@ -24,10 +24,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MaterialButton buttonAC, buttonDecimal;
 
     /**
-     *
-     * @param savedInstanceState If the activity is being re-initialized after
-     *     previously being shut down then this Bundle contains the data it most
-     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     * Initializes the calculator activity, sets the layout
+     * and assigns OnClickListeners for the buttons
+     * @param savedInstanceState previously saved state
      *
      */
     @Override
@@ -73,7 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     *
+     * Finds a calculator button by its id
+     * and registers this activity as its click listener
      * @param btn
      * @param id
      */
@@ -83,6 +83,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Handles calculator button clicks, updates or clears the text when requested,
+     * and displays the result
+     * @param view The view that was clicked.
+     */
     @Override
     public void onClick(View view) {
         MaterialButton button = (MaterialButton) view;
@@ -99,7 +104,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if (buttonText.equals("C")){
-            dataToCalculate = dataToCalculate.substring(0,dataToCalculate.length()-1);
+            if (!dataToCalculate.isEmpty()) {
+                dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
+            }
 
         } else {
             dataToCalculate = dataToCalculate + buttonText;
