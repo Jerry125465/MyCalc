@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+        //blah
         solutionTV.setText(dataToCalculate);
 
         String finalResult = getResults(dataToCalculate);
